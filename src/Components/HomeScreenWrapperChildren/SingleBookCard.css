@@ -37,6 +37,13 @@
   /* border: 2px solid black; */
 }
 
+/* Mobile */
+@media (max-width: 465px) {
+  .singleBookCard .details .bookDetails {
+    display: none;
+  }
+}
+
 .singleBookCard .details .actionsHolder {
   width: 100%;
   display: flex;
