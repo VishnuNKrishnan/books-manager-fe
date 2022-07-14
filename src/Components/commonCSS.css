@@ -1,0 +1,17 @@
+/* This file contains commonly used custom CSS attributes*/
+.primaryCTA {
+  background-color: #012c3d;
+  color: #eee;
+  border: 1px solid #012c3d;
+}
+
+.secondaryCTA {
+  color: #012c3d;
+  border: 1px solid #012c3d;
+}
+
+.tirtiaryCTA {
+  color: #012c3d60;
+  border: none;
+  cursor: pointer;
+}

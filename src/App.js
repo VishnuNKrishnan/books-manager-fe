@@ -1,25 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import BG from './uiAssets/appBG.jpeg'
+import './App.css'
+import { UserContext } from './UserContext'
+import LoginScreen from './Components/LoginScreen'
+import { useState } from 'react'
 
 function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  //State variable containing object with details of logged in user
+  const [currentUser, setCurrentUser] = useState({
+    userID: false,
+    userName: false,
+  })
+
+  // ================ COMPONENT BEGINS ==================
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+      <UserContext.Provider value={(isLoggedIn, setIsLoggedIn)}>
+        <div
+          className="appWrapper" //Wraps the entire app
+          style={{
+            backgroundImage: `url(${BG})`,
+          }}
         >
-          Learn React
-        </a>
-      </header>
+          <LoginScreen />
+        </div>
+      </UserContext.Provider>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
