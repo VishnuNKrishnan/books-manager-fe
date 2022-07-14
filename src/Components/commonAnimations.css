@@ -10,3 +10,25 @@
     transform: scale(100%);
   }
 }
+
+@keyframes loadFromLeft {
+  0% {
+    opacity: 0%;
+    left: -360px;
+  }
+  100% {
+    opacity: 100%;
+    left: 0px;
+  }
+}
+
+@keyframes loadFromBottom {
+  0% {
+    opacity: 0%;
+    bottom: -80px;
+  }
+  100% {
+    opacity: 100%;
+    bottom: 0px;
+  }
+}

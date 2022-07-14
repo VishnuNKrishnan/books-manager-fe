@@ -7,9 +7,11 @@ import { useState, useContext } from 'react'
 import { UserContext } from '../UserContext'
 import CircularLoader from './Loaders/CircularLoader'
 
-function LoginScreen() {
+function LoginScreen(props) {
   //Context Values from App.js
-  const { isLoggedIn, setIsLoggedIn } = useContext(UserContext)
+  const { isLoggedIn, setIsLoggedIn, setCurrentUser } = useContext(UserContext)
+
+  setIsLoggedIn(false)
 
   //State Variables for user provided inputs
   const [givenUsername, setGivenUserName] = useState('')
@@ -34,6 +36,32 @@ function LoginScreen() {
     }
 
     setIsLoading(true)
+
+    const data = { username: givenUsername, password: givenPassword }
+    const options = {
+      method: 'POST',
+      body: JSON.stringify(data),
+      mode: 'cors',
+      headers: {
+        'Access-Control-Allow-Origin': '*',
+        'Content-Type': 'application/json',
+      },
+    }
+    const serverResponse = await fetch(
+      `${process.env.REACT_APP_API_SERVER_BASE_URL}/api/authenticateUser`,
+      // `http://127.0.0.1:3001/api/authenticateUser`,
+      options,
+    ).catch((err) => console.log(err))
+    const serverResponseData = await serverResponse.json()
+    console.log(serverResponseData)
+
+    if (serverResponseData.authenticated === true) {
+      setIsLoggedIn(true)
+      setIsLoading(false)
+    } else {
+      setAuthStatusMessage('Login failed. Please try again')
+      setIsLoading(false)
+    }
   }
 
   // ============ COMPONENT BEGINS =================

@@ -1,0 +1,99 @@
+.homeScreenWrapper .homeScreenContent .topBar {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  /* border: 2px solid red; */
+}
+
+.homeScreenWrapper .homeScreenContent .topBar .backBtn {
+  height: 50px;
+  width: 50px;
+  /* border: 2px solid red; */
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.homeScreenWrapper .homeScreenContent .topBar .sectionHeading {
+  height: 50px;
+  width: calc(100% - 100px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* border: 2px solid blue; */
+}
+
+.homeScreenWrapper .homeScreenContent .topBar .homeBtn {
+  height: 50px;
+  width: 50px;
+  /* border: 2px solid red; */
+  background-position: center;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.homeScreenWrapper .homeScreenContent .bookCardsHolder {
+  width: 100%;
+  max-height: calc(100% - 50px);
+  /* border: 2px solid black; */
+  padding: 10px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+}
+
+/* Wide Screens */
+@media (min-width: 1180px) {
+  .homeScreenWrapper .homeScreenContent .bookCardsHolder {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+}
+
+.homeScreenWrapper .homeScreenContent .bookCardsHolder .searchBarHolder {
+  width: 100%;
+  /* border: 2px solid black; */
+
+  display: flex;
+  justify-content: center;
+  margin-bottom: 30px;
+  overflow: hidden;
+  transition: height 0.25s ease-in-out;
+}
+
+.homeScreenWrapper .homeScreenContent .bookCardsHolder .searchBarHolder input {
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
+  background-color: rgb(199, 199, 199);
+  border-radius: 5px;
+  max-width: 100%;
+  padding: 5px 0;
+  font-size: 30px;
+  outline: none;
+  text-align: center;
+}
+
+/* Mobile */
+@media (max-width: 840px) {
+  .homeScreenWrapper
+    .homeScreenContent
+    .bookCardsHolder
+    .searchBarHolder
+    input {
+    width: 100%;
+  }
+}
+
+/* Controlled using state variable */
+.searchBarActive {
+  height: 46px;
+}
+.searchBarInactive {
+  height: 0px;
+}
